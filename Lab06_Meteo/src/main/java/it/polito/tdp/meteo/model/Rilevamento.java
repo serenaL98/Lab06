@@ -38,10 +38,10 @@ public class Rilevamento {
 		this.umidita = umidita;
 	}
 
-	// @Override
-	// public String toString() {
-	// return localita + " " + data + " " + umidita;
-	// }
+	 //@Override
+	 public String toStringBello() {
+		 return localita + " " + data + " " + umidita;
+	 }
 
 	@Override
 	public String toString() {

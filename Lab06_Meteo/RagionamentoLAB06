@@ -1,0 +1,93 @@
+LIVELLO 0:
+
+LIVELLO 1:
+-sono nel mese di marzo, ho i valori di umidita dei primi 15 gg--> lista di citta, data, umidita
+-calcolo il costo: sono a Torino-> costo = 100*0+20
+									costo= costo precedente+30;
+									costo = costo precedente+15;
+					vado a milano-> costo = costo precedente+ 100+35
+									costo = costo precedente+15;
+									costo = costo precedente+15;
+									costo = costo precedente+15;
+									costo = costo precedente+15;
+					vado a Torino->costo = costo precedente+100+ 45;
+	devo stare un minimo di 3 gg consecutivi nella citta (contatore consecutivi) e per un totale di massimo 6gg (contatore totale)
+	Esempio:
+		Genova 1 55
+		Milano 1 25
+		Torino 1 35
+		
+		Genova 2 55
+		Milano 2 25
+		Torino 2 35
+		
+		Genova 3 55
+		Milano 3 25
+		Torino 3 35
+	LIVELLO 1: sono al giorno 1.
+		*guardo il piu piccolo valore di umidita e parto da quella citta
+		for(int i =1; i<16; i++){
+			//giorno 1
+			for(String l: elenco.getLocalita(i)){
+				compareTo()
+				}
+			}
+		-Creo un metodo che mi compara i valori di umidità
+		
+		*aggiorno il costo
+		costo = umidita;
+		*aggiorno il contatore che mi dice quanti giorni sono in quella citta
+		giorni = 1;
+		
+		*sto in quella citta per un minimo di tre giorni
+		giorni == 3;
+		
+		*a quel punto vedo al giorno (giorni+1) qual è la città con valore più basso di umidita
+			-se la citta è la stessa:
+				faccio questo se giornitot<6
+				costo = costo+umidita
+				giornitot ++;
+			-se la citta è diversa
+				costo = costo + 100 +umidita;
+				giorni = 1;
+Mi fermo quando ho "finito"  di ciclare nella lista (la lista è quella creata dal database
+ grazie al valore in ingresso del mese)
+ 
+ 
+ Il livello rappresenta il giorno del mese in cui mi trovo
+ la soluzione parziale è data dalla citta in cui mi trovo, il costo attuale
+ la soluzione parziale è completa quando???
+ la soluzione parziale è valida quando so di aver preso il valore piu basso di umidita
+ la soluzione completa è valida quando il tecnico ha trascorso i 15 gg,
+ 										il numero totale dei giorni di ogni città sia >2 e <6
+ad ogni livello io devo controllare il valore i umidità minore fra le citta
+									che la citta non sia stata gia visitata 5 gg in tot
+la soluzione puo essere un arraylist
+la ricerca sarà cerca(parziale, livello)
+
+la mia soluzione finale sarà un array di 15 citta quindi ho 15 livelli
+LIVELLO 0: soluzione vuota, 15 cassetti vuoti
+LIVELLO 1: giorno = livello
+			ciclo nel giorno
+			comparo umidita
+			prendo localita con umidita minore
+			costo = umidita
+			parziale.add(localita)
+			
+			//controllo
+			giornicitta >=3
+			
+			
+torino
+torino
+torino
+milano
+milano
+torino
+torino
+torino
+genova
+genova
+genova
+
+il costo è dato dalla somma dell'umidità della stessa città; se cambio citta aggiungo 100

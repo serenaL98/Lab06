@@ -5,8 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import it.polito.tdp.meteo.model.Citta;
 import it.polito.tdp.meteo.model.Rilevamento;
 
 public class MeteoDAO {
@@ -39,10 +41,18 @@ public class MeteoDAO {
 		}
 	}
 
-	public List<Rilevamento> getAllRilevamentiLocalitaMese(int mese, String localita) {
-
-		return null;
+	public List<Rilevamento> getAllRilevamentiLocalitaMese(int mese, int finoa) {
+		//primi 15 gg
+		List<Rilevamento> quindici = new ArrayList<Rilevamento>();
+		
+		for(Rilevamento r: this.getAllRilevamenti()) {
+			if(mese == Integer.parseInt(r.getData().toString().substring(5, 7))) {
+				if(Integer.parseInt(r.getData().toString().substring(8))<=finoa) {
+					quindici.add(r);
+				}
+			}
+		}
+		return quindici;
 	}
-
 
 }
